@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Zen+Dots&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .transition-filter {
+      @apply transition-all duration-300;
+    }
+    .hover\:filter-white:hover {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+
+
+
+  .font-zen-dots {
+    font-family: 'Zen Dots', sans-serif;
+  }
+  
+  .scroll-amount-27 {
+    scrollamount: 40;
+  }
+  
+  .scroll-amount-25 {
+    scrollamount: 40;
+  }
+  
+  .scroll-direction-right {
+    direction: right;
+  }
+
+
+  @layer components {
+    .hover-overlay {
+      @apply relative overflow-hidden;
+    }
+    .hover-overlay::before {
+      content: '';
+      @apply absolute top-1/2 left-1/2 w-0 h-0 bg-red-500 border-2 border-red-500 opacity-0 transition-all duration-700 ease-in-out;
+      background-color: rgba(255, 0, 0, 0.3); /* More transparent red */
+      transform: translate(-50%, -50%);
+    }
+    .hover-overlay:hover::before {
+      @apply w-[90%] h-[90%] opacity-100;
+      transform: translate(-50%, -50%);
+    }
+    .hover-text {
+      @apply absolute bottom-16 left-10 text-white text-lg font-bold opacity-0 transition-opacity duration-700 ease-in-out;
+    }
+    .hover-overlay:hover .hover-text {
+      @apply opacity-100;
+    }
+  }
+
+
+  
